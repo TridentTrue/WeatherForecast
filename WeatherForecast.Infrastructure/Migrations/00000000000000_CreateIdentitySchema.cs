@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WeatherForecast.MVC.Data.Migrations
+namespace WeatherForecast.Infrastructure.Migrations
 {
 	public partial class CreateIdentitySchema : Migration
 	{
