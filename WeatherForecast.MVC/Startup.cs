@@ -12,6 +12,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WeatherForecast.Infrastructure.Persistence;
+using WeatherForecast.Infrastructure.Services;
+using WeatherForecast.Application.Common.Interfaces;
+using System.Text.Json;
 
 namespace WeatherForecast.MVC
 {
@@ -30,8 +33,11 @@ namespace WeatherForecast.MVC
 			services.AddDbContext<WeatherForecastContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WeatherAppConnection")));
 			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 				.AddEntityFrameworkStores<WeatherForecastContext>();
-			services.AddControllersWithViews();
+			services.AddControllersWithViews()
+				.AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
 			services.AddRazorPages();
+
+			services.AddHttpClient<IWeatherService, WeatherService>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +66,7 @@ namespace WeatherForecast.MVC
 			{
 				endpoints.MapControllerRoute(
 					name: "default",
-					pattern: "{controller=Home}/{action=Index}/{id?}");
+					pattern: "{controller=Forecast}/{action=GetFiveDayForecast}/{id?}");
 				endpoints.MapRazorPages();
 			});
 		}
