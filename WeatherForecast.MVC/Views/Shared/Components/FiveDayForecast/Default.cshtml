@@ -2,11 +2,21 @@
 
 <h4>Forecast correct as of @Html.DisplayFor(model => model.time)</h4>
 
-@foreach (OneDayForecastModel day in Model.consolidated_weather)
-{
-	<label>HI:</label> @day.max_temp
-	<br />
-	<label>LO:</label> @day.min_temp
-	<br />
-	@day.weather_state_name
-}
+<div class="forecast-cards-wrapper">
+	@for (int i = 0; i < Model.consolidated_weather.Length; i++)
+	{
+		bool isToday = i == 0;
+		string cardCssClass = isToday ? "bg-primary text-white" : null;
+
+		<div class="card">
+			<div class="card-header @cardCssClass">
+				@(isToday ? "Today" : $"{Model.consolidated_weather[i].applicable_date}")
+			</div>
+			<div class="card-body">
+				<div><label style="margin-right: 20px;">HI</label>@Model.consolidated_weather[i].max_temp&#176;C</div>
+				<div><label style="margin-right: 20px;">LO</label>@Model.consolidated_weather[i].min_temp&#176;C</div>
+				<div><label>@Model.consolidated_weather[i].weather_state_name</label><img class="forecast-image" src="https://www.metaweather.com/static/img/weather/png/@(Model.consolidated_weather[i].weather_state_abbr).png" /></div>
+			</div>
+		</div>
+	}
+</div>
