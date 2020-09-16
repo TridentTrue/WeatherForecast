@@ -10,17 +10,18 @@ namespace WeatherForecast.MVC.Controllers
 	[Authorize]
     public class ForecastController : Controller
     {
-        private readonly IWeatherService _weather;
+  //      private readonly IWeatherService _weather;
 
-        public ForecastController(IWeatherService weather)
-        {
-            _weather = weather;
-        }
+  //      public ForecastController(IWeatherService weather)
+  //      {
+  //          _weather = weather;
+  //      }
 
-        public async Task<JsonResult> Test()
-		{
-            return Json(await _weather.GetFiveDayForecast(44544));
-		}
+  //      public async Task<JsonResult> Test()
+  //      {
+  //          // Using WhereOnEarth ID for belfast. Could be modified to accept a parameter later.
+  //          return Json(await _weather.GetFiveDayForecast(44544));
+  //      }
 
         public IActionResult Index()
         {
@@ -30,12 +31,6 @@ namespace WeatherForecast.MVC.Controllers
         public IActionResult FiveDayForecast()
         {
             return ViewComponent("FiveDayForecast");
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

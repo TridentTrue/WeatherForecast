@@ -19,6 +19,11 @@ namespace WeatherForecast.Infrastructure.Services
 			_client = client;
 		}
 
+		/// <summary>
+		/// Uses the MetaWeather API to get the weather forecast for today and the next 5 days.
+		/// </summary>
+		/// <param name="woeid">The "Where On Earth" ID provided by MetaWeather</param>
+		/// <returns>The forecast if found, or throws an error if not</returns>
 		public async Task<FiveDayForecastModel> GetFiveDayForecast(int woeid)
 		{
 			HttpResponseMessage httpResponse = await _client.GetAsync(@$"{BaseUrl}{woeid}");

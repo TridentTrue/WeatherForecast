@@ -18,6 +18,7 @@ namespace WeatherForecast.MVC.ViewComponents
 
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
+			// Using WhereOnEarth ID for belfast. Could be modified to accept a parameter later.
 			return View(await _weather.GetFiveDayForecast(44544));
 		}
 	}

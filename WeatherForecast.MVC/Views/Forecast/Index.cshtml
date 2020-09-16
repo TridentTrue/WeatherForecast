@@ -13,6 +13,7 @@
 <h1>5 Day Forecast for Belfast</h1>
 
 <div id="forecast-wrapper">
+	@* Forecast is held in a ViewComponent so that we can more easily reload with JS fetch API *@
 	@await Component.InvokeAsync("FiveDayForecast")
 </div>
 

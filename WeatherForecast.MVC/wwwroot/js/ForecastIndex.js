@@ -21,6 +21,7 @@ function ReloadForecast() {
 	});
 }
 
+// button for desktop users
 document.getElementById("reload").addEventListener("click", ReloadForecast);
 
 // from https://github.com/BoxFactura/pulltorefresh.js
