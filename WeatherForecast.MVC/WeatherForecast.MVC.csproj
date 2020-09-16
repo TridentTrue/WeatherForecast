@@ -23,8 +23,4 @@
     <ProjectReference Include="..\WeatherForecast.Infrastructure\WeatherForecast.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Forecast\" />
-  </ItemGroup>
-
 </Project>

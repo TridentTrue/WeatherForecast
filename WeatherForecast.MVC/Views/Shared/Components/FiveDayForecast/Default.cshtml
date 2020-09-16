@@ -1,0 +1,12 @@
+﻿@model FiveDayForecastModel
+
+<h4>Forecast correct as of @Html.DisplayFor(model => model.time)</h4>
+
+@foreach (OneDayForecastModel day in Model.consolidated_weather)
+{
+	<label>HI:</label> @day.max_temp
+	<br />
+	<label>LO:</label> @day.min_temp
+	<br />
+	@day.weather_state_name
+}

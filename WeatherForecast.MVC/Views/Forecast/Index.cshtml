@@ -1,0 +1,19 @@
+﻿@{
+	ViewData["Title"] = "Belfast 5 Day Forecast";
+}
+
+@section HeadScripts {
+	<script>
+		const Url_FiveDayForecast = "@Url.Action("FiveDayForecast", "Forecast")";
+	</script>
+
+	<script src="~/js/ForecastIndex.js" defer></script>
+}
+
+<h1>5 Day Forecast for Belfast</h1>
+
+<div id="forecast-wrapper">
+	@await Component.InvokeAsync("FiveDayForecast")
+</div>
+
+<button type="button" id="reload" class="btn btn-outline-primary">reload</button>

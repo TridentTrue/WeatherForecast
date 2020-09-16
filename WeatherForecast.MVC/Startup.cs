@@ -66,7 +66,7 @@ namespace WeatherForecast.MVC
 			{
 				endpoints.MapControllerRoute(
 					name: "default",
-					pattern: "{controller=Forecast}/{action=GetFiveDayForecast}/{id?}");
+					pattern: "{controller=Forecast}/{action=Index}/{id?}");
 				endpoints.MapRazorPages();
 			});
 		}

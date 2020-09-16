@@ -17,7 +17,7 @@ namespace WeatherForecast.MVC.Controllers
             _weather = weather;
         }
 
-        public async Task<JsonResult> GetFiveDayForecast()
+        public async Task<JsonResult> Test()
 		{
             return Json(await _weather.GetFiveDayForecast(44544));
 		}
@@ -25,6 +25,11 @@ namespace WeatherForecast.MVC.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult FiveDayForecast()
+        {
+            return ViewComponent("FiveDayForecast");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
