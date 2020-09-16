@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "pulltorefreshjs@0.1.20",
+      "destination": "wwwroot/lib/pulltorefreshjs/"
+    }
+  ]
+}

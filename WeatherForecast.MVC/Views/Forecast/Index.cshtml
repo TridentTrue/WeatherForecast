@@ -7,7 +7,7 @@
 		const Url_FiveDayForecast = "@Url.Action("FiveDayForecast", "Forecast")";
 	</script>
 
-	<script src="~/js/ForecastIndex.js" defer></script>
+	<script type="module" src="~/js/ForecastIndex.js"></script>
 }
 
 <h1>5 Day Forecast for Belfast</h1>
@@ -17,3 +17,5 @@
 </div>
 
 <button type="button" id="reload" class="btn btn-outline-primary">reload</button>
+
+<div class="loader-full-screen" id="loader"><span>Loading...</span></div>
